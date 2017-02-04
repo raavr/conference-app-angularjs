@@ -1,0 +1,16 @@
+<section class="route-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="app-section-title text-dark">Agenda</h2>
+            </div>
+            <div class="col-xs-12">
+                <ul class="days-name-list">
+                    <li ng-repeat="dayName in $ctrl.daysName" class="days-item" ng-class="{ active: $ctrl.isActive($index)}" ng-style=" { width: $ctrl.computeDayNameWidth() }"><a ng-click="$ctrl.setDayActive($index)" title="{{dayName}}">{{dayName | uppercase}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <day-agenda ng-repeat="dayAgenda in $ctrl.agenda" agenda-rows="dayAgenda" is-active="$ctrl.isActive($index)"></day-agenda>
+        <speaker-modal speaker="$ctrl.selectedSpeaker"></speaker-modal>
+    </div>
+</section>

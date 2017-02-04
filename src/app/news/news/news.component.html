@@ -1,0 +1,11 @@
+<div ng-if="$ctrl.news" class="col-sm-12 col-md-11 post-container">
+    <h2 class="post-title">
+        <a ng-if="$ctrl.onList" ui-sref="news({newsId: $ctrl.news.id})">{{$ctrl.news.title}}</a>
+        <span ng-if="!$ctrl.onList">{{$ctrl.news.title}}</span>
+    </h2>
+    <time class="post-date" datetime="$ctrl.news.date | date:'medium'">{{$ctrl.news.date | date:'mediumDate'}}</time>
+    <p class="post-content">
+        <span ng-if="$ctrl.onList">{{$ctrl.news.message | maxLen:350}}</span>
+        <span ng-if="!$ctrl.onList">{{$ctrl.news.message}}</span>
+    </p>
+</div>

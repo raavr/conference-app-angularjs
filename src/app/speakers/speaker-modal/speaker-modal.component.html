@@ -1,0 +1,19 @@
+<div ng-if="$ctrl.speaker" class="modal fade" id="speakerModal" tabindex="-1" role="dialog" aria-labelledby="speakerModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="speaker-item">
+         <img class="speaker-photo" ng-src="../../assets/img/{{$ctrl.speaker.img}}.jpg" alt="{{$ctrl.speaker.name}} {{$ctrl.speaker.surname}">
+          <p class="speaker-name">{{$ctrl.speaker.name}} {{$ctrl.speaker.surname}}</p>
+          <p class="speaker-company">{{$ctrl.speaker.company}}</p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p class="speaker-desc">{{$ctrl.speaker.desc}}</p>
+      </div>
+    </div>
+  </div>
+</div>

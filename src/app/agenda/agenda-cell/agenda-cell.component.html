@@ -1,0 +1,21 @@
+<div class="all" ng-if="$ctrl.cell.type === 'general'">{{$ctrl.cell.title}}</div>
+<div ng-if="$ctrl.cell.type === 'presentation'" class="{{$ctrl.cell.type}}--{{$ctrl.cell.room}}">
+    <div class="visible-xs-inline time-period">{{$ctrl.cell.timeStart | date:'HH:mm'}} - {{$ctrl.cell.timeEnd | date:'HH:mm'}}</div>
+    <div class="agenda-session">
+        <h3>{{$ctrl.cell.title}}</h3>
+        <p>
+            <span ng-repeat="speaker in $ctrl.cell.speakers">{{speaker.name}} {{speaker.surname}}<span ng-if="$index !== ($ctrl.cell.speakers.length - 1)">, </span>
+            </span>
+        </p>
+        <p class="clearfix">
+            <img ng-repeat="speaker in $ctrl.cell.speakers" 
+                    ng-click="$ctrl.parent.selectSpeaker(speaker)" 
+                    data-toggle="modal" 
+                    data-target="#speakerModal"
+                    class="speaker-thumb" 
+                    ng-src="../../assets/img/{{speaker.img}}.jpg" 
+                    alt="{{speaker.name}} {{speaker.surname}}">
+        </p>
+    </div>
+</div>
+
