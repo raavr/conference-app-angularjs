@@ -1,7 +1,9 @@
+import AppFooterModule from './app-footer';
+
 describe("AppFooterComponent", () => {
 
     let $rootScope, $compile;
-    beforeEach(angular.mock.module("Conference-app"));
+    beforeEach(angular.mock.module(AppFooterModule));
     beforeEach(angular.mock.inject(($injector) => {
         $rootScope = $injector.get("$rootScope");
         $compile = $injector.get("$compile");

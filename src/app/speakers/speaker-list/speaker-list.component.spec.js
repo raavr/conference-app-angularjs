@@ -1,10 +1,10 @@
-// import speakerListModule from './speaker-list';
+import SpeakerListModule from './speaker-list';
 
 describe("SpeakerList", () => {
 
     let $componentController, mockSpeakers, bindings, $rootScope, $compile;
 
-    beforeEach(angular.mock.module("Conference-app"));
+    beforeEach(angular.mock.module(SpeakerListModule));
     
     beforeEach(() => {
          mockSpeakers = [{ 

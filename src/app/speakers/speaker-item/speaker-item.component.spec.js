@@ -1,8 +1,10 @@
+import SpeakerItemModule from './speaker-item';
+
 describe("SpeakerItem", () => {
 
     let $componentController, mockSpeaker, bindings, $compile, $rootScope;
 
-    beforeEach(angular.mock.module('Conference-app'));
+    beforeEach(angular.mock.module(SpeakerItemModule));
     
     beforeEach(() => {
          mockSpeaker = { 

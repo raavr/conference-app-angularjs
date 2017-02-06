@@ -1,8 +1,10 @@
+import MaxLenModule from './news-len.filter';
+
 describe('MaxLenFilter', () => {
   const MAX_LEN = 15;
   let maxLenFun;
   
-  beforeEach(angular.mock.module("Conference-app"));
+  beforeEach(angular.mock.module(MaxLenModule));
   
   beforeEach(
       angular.mock.inject((maxLenFilter) => {

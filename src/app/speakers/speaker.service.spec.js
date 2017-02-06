@@ -1,11 +1,11 @@
 import { Observable } from 'rxjs/Observable';
-// import serviceModule from './speaker.sevice';
+import ServiceModule from './speaker.service';
 
 describe("SpeakerService", () => {
 
     let $httpMock, mSpeakerService, fakeSpeakers, response;
 
-    beforeEach(angular.mock.module("Conference-app"));
+    beforeEach(angular.mock.module(ServiceModule));
     beforeEach(() => {
         fakeSpeakers = [{ 
             id: 1, 

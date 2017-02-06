@@ -1,10 +1,11 @@
 import { AGENDA as fakeAgenda } from '../agenda/fake-agenda';
+import FullAgendaModule from './full-agenda';
 
 describe("FullAgenda", () => {
 
     let bindings, ctrl, selectedSpeaker;
 
-    beforeEach(angular.mock.module('Conference-app'));
+    beforeEach(angular.mock.module(FullAgendaModule));
 
     beforeEach(() => {
         selectedSpeaker = { 
@@ -20,7 +21,7 @@ describe("FullAgenda", () => {
     
     beforeEach(angular.mock.inject(($injector) => {
         let $componentController = $injector.get('$componentController');
-        ctrl = $componentController("agenda", null, bindings);
+        ctrl = $componentController("fullAgenda", null, bindings);
     }));
 
     it('should set agenda', () => {

@@ -1,5 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { MAX_PARTNERGROUP, MAX_SPEAKER_HOMEPAGE, MAX_NEWS_HOMEPAGE } from '../app.constant';
+import HomeModule from './home';
 
 const speakersMock = [{ 
         id: 1, 
@@ -128,7 +129,7 @@ const NewsServiceMock = {
 
 describe("HomeComponent", () => {
     let $componentController, ctrl;
-    beforeEach(angular.mock.module("Conference-app"));
+    beforeEach(angular.mock.module(HomeModule));
     beforeEach(angular.mock.module(($provide) => {
         $provide.value("speakerService", SpeakerServiceMock);
         $provide.value("partnerService", PartnerServiceMock);
