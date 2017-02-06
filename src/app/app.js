@@ -1,6 +1,4 @@
 'use strict';
-import uiRouter from 'angular-ui-router';
-
 import 'bootstrap/dist/css/bootstrap.css';
 import './app.style.scss';
 
