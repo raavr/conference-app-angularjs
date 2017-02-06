@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Observable';
 import { MAX_PARTNERGROUP } from '../app.constant';
 
-export class PartnerService {
+class PartnerService {
     constructor($http) {
         this.$http = $http;
     }
@@ -22,3 +22,7 @@ export class PartnerService {
 }
 
 PartnerService.$inject = ['$http'];
+
+export default angular.module("partners.service", [])
+                      .service("partnerService", PartnerService)
+                      .name;

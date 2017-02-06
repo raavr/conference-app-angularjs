@@ -13,3 +13,8 @@ export class SpeakerService {
 }
 
 SpeakerService.$inject = ['$http'];
+
+export default angular
+    .module("speakers.service", [])
+    .service("speakerService", SpeakerService)
+    .name;

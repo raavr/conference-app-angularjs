@@ -1,8 +1,10 @@
+// import speakerListModule from './speaker-list';
+
 describe("SpeakerList", () => {
 
     let $componentController, mockSpeakers, bindings, $rootScope, $compile;
 
-    beforeEach(angular.mock.module('Conference-app'));
+    beforeEach(angular.mock.module("Conference-app"));
     
     beforeEach(() => {
          mockSpeakers = [{ 
@@ -22,17 +24,17 @@ describe("SpeakerList", () => {
     }));
 
     it('should set speakers', () => {
-        let ctrl = $componentController("speakers", null, bindings);
+        let ctrl = $componentController("speakerList", null, bindings);
         expect(ctrl.speakers).toEqual(mockSpeakers);
     });
 
     it('should not have selectedSpeaker', () => {
-        let ctrl = $componentController("speakers", null, null);
+        let ctrl = $componentController("speakerList", null, null);
         expect(ctrl.selectedSpeaker).not.toBeDefined();
     });
 
     it('should call selectSpeaker', () => {
-        let ctrl = $componentController("speakers", null, null);
+        let ctrl = $componentController("speakerList", null, null);
         spyOn(ctrl, 'selectSpeaker');
         ctrl.selectSpeaker(mockSpeakers[0]);
         expect(ctrl.selectSpeaker).toHaveBeenCalledWith(mockSpeakers[0]);
@@ -44,8 +46,8 @@ describe("SpeakerList", () => {
 
         beforeEach(() => {
             let scope = $rootScope.$new();
-            element = $compile("<speakers></speakers>")(scope);
-            ctrl = element.controller("speakers");
+            element = $compile("<speaker-list></speaker-list>")(scope);
+            ctrl = element.controller("speakerList");
             ctrl.speakers = mockSpeakers;
             scope.$apply();
         });

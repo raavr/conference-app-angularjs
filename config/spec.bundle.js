@@ -1,7 +1,7 @@
 import 'angular';
 import 'angular-mocks/angular-mocks';
 import 'babel-polyfill';
-import 'rxjs/Rx';
+// import 'rxjs/Rx';
 
 import bootstrapApplication from '../src/main.browser';
 

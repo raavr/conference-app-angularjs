@@ -6,7 +6,7 @@ export const AgendaCellComponent = {
         cell: "<"
     },
     template: template,
-    require: { parent: "^^agenda" }
+    require: { parent: "^^fullAgenda" }
 }
 
 // export default function AgendaCellDirective() {

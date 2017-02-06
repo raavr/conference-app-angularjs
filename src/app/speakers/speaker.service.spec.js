@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs/Observable';
+// import serviceModule from './speaker.sevice';
 
 describe("SpeakerService", () => {
 

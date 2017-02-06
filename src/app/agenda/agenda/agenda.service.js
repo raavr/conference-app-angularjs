@@ -4,7 +4,7 @@ import { AgendaData } from './agenda-data';
 import { AgendaRow } from './agenda-row';
 import { AgendaDay } from './agenda-day';
 
-export class AgendaService {
+class AgendaService {
 
     constructor($http) {
         this.http = $http;
@@ -86,3 +86,7 @@ export class AgendaService {
 }
 
 AgendaService.$inject = ['$http'];
+
+export default angular.module("agenda.service", [])
+                      .service("agendaService", AgendaService)
+                      .name;

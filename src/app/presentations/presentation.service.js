@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 
-export class PresentationService {
+class PresentationService {
 
     constructor($http) {
         this.$http = $http;
@@ -13,3 +13,7 @@ export class PresentationService {
 }
 
 PresentationService.$inject = ['$http'];
+
+export default angular.module("presentations.service", [])
+                      .service("presentationService", PresentationService)
+                      .name;

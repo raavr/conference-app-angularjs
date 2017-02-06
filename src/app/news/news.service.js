@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 
-export class NewsService {
+class NewsService {
 
     constructor($http) {
         this.$http = $http;
@@ -23,3 +23,7 @@ export class NewsService {
 }
 
 NewsService.$inject = ["$http"];
+
+export default angular.module("news.service", [])
+                      .service("newsService", NewsService)
+                      .name;
