@@ -8,19 +8,3 @@ export const AgendaCellComponent = {
     template: template,
     require: { parent: "^^fullAgenda" }
 }
-
-// export default function AgendaCellDirective() {
-//     return {
-//         restrict: "A",
-//         require: "^^agenda",
-//         scope: {
-//             cell: "="
-//         },
-//         template: template,
-//         link: function(scope, elem, attrs, agendaCtrl) {
-//             scope.selectSpeaker = function(speaker) {
-//                 agendaCtrl.selectSpeaker(speaker);
-//             }
-//         }
-//     }
-// }
