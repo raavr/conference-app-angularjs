@@ -1,7 +1,7 @@
 {
   "name": "conference-app-angularjs",
   "version": "1.0.0",
-  "description": "Conferece app with angularjs, es6, webpack, karma and jasmine",
+  "description": "Conference app built with angularjs, es6, webpack, bootstrap v4, karma and jasmine",
   "scripts": {
     "build": "npm run build:dev",
     "build:dev": "rimraf dist && webpack --config config/webpack.dev.js --progress --profile --colors --display-error-details --display-cached",
