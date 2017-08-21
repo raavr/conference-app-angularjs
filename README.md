@@ -1,13 +1,15 @@
-# Conference web-application build with AngularJS and webpack
+# Conference WebApp built with AngularJS and Webpack
 
-An application using:
+Working example can be found here: https://raavr.github.io/conference-app-angularjs/
+
+This app is built with:
 * [AngularJS] (http://www.angularjs.org/)
 * [UI Router] (https://ui-router.github.io/)
 * [Bootstrap v4] (https://v4-alpha.getbootstrap.com/)
 * [Sass] (http://sass-lang.com/)
 * [RxJs] (http://reactivex.io/rxjs/)
 * [Babel] (https://babeljs.io/)
-* [ES6] ()
+* [ES6]
 * [Webpack] (https://webpack.github.io/)
 * [npm] (https://www.npmjs.com/)
 
