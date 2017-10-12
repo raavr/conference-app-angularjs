@@ -11,15 +11,10 @@ class AgendaService {
     }
 
     _getDefaultCellsForSpecificTime(time, totalRooms) {
-        let i = 1, 
-            ad = [];
-
-        while(i <= totalRooms) {
-            ad.push(new AgendaData(i, TD_TYPES[TD_TYPES.GAP].toLowerCase(), time))
-            i++;
-        }
-
-        return ad;
+        return Array.from(
+            {length: totalRooms}, 
+            (e, i) => new AgendaData(i+1, TD_TYPES[TD_TYPES.GAP].toLowerCase(), time)
+        );
     }
 
     _concatCellsWithDefaultOnes(arr, totalRooms) {
@@ -51,36 +46,25 @@ class AgendaService {
             .toArray();
     }
 
+    _createAgendaDay(agenda) {
+        return this._transformAgenda(agenda.agenda, agenda.totalRooms)
+                .map(agendaRow => new AgendaDay(agenda.day, agendaRow, agenda.totalRooms));
+                
+    }
+
     getAgenda() {
-         let day, 
-             totalRooms,
-             resPromise = this.http.get("/assets/mock-data/mock-agenda.json");
+         const resPromise = this.http.get("/assets/mock-data/mock-agenda.json");
          
          return Observable.fromPromise(resPromise)
             .map(res => res.data.agenda)
             .mergeMap(res => Observable.from(res))
-            .mergeMap(a => { 
-                day = a.day; 
-                totalRooms = a.totalRooms; 
-                return this._transformAgenda(a.agenda, a.totalRooms);
-            })
-            .map(agenda => new AgendaDay(day, agenda, totalRooms))
+            .mergeMap(agenda => this._createAgendaDay(agenda))
             .toArray();
-            
 
     }
 
     createDaysNameArray(days) {
-        let daysArray = [], 
-            i = 0;
-        
-        while(i < days) {
-            daysArray.push("day " + DAYS[i].toLowerCase());
-            i++;
-        }
-
-        return Observable.of(daysArray);
-        
+        return Observable.of(Array.from({length: days}, (e, i) => `day ${DAYS[i].toLowerCase()}`));       
     }
 
 }

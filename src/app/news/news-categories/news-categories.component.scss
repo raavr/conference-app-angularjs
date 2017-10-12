@@ -5,7 +5,9 @@
     padding-top: 50px;
     padding-bottom: 50px;
 
-        @include media-breakpoint-up(md) {
-        padding-left: 25px;
+    @include media-breakpoint-up(md) {
+        & {
+            padding-left: 25px;
+        }
     }
 }

@@ -7,7 +7,7 @@ class PartnerService {
     }
 
     getPartners(maxPartnersGroup = MAX_PARTNERGROUP.PARTNERPAGE) {
-        let resPromise = this.$http.get("/assets/mock-data/mock-partners.json");
+        const resPromise = this.$http.get("/assets/mock-data/mock-partners.json");
         return Observable.fromPromise(resPromise)
             .map(res => res.data.partners)
             .mergeMap(partners => Observable.from(partners))
