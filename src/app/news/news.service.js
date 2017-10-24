@@ -12,9 +12,7 @@ class NewsService {
     }
 
     getSingleNews(id) {
-        let resPromise = this.$http.get("/assets/mock-data/mock-news.json");
-        return Observable.fromPromise(resPromise)
-            .map(res => res.data.news)
+        return this.getNews()
             .mergeMap(ns => Observable.from(ns))
             .filter(ns => ns.id === id);
     }

@@ -2,5 +2,5 @@
 <td ng-repeat="cell in row.sessions" 
     colspan="{{getColspanValue(cell)}}"
     ng-class="[getTdClass(cell), { active: isRoomActive(cell.room) }]">
-    <agenda-cell cell="cell">
+    <agenda-cell cell="cell"></agenda-cell>
 </td>
