@@ -27,7 +27,7 @@ module.exports = {
 			}, 
 			{
 			  test: /\.scss$/, 
-			  loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass?sourceMap!postcss')
+			  loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!sass?sourceMap')
 			}, 
 			{
 		      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
