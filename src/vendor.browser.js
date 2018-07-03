@@ -1,3 +1,6 @@
+// polyfill
+import 'babel-polyfill';
+
 // bootstrap
 import 'expose?Util!exports?Util!bootstrap/js/dist/util';
 import 'bootstrap/js/dist/collapse';
