@@ -28,9 +28,10 @@ class DayAgendaController {
   }
 
   _fillRoomsArray() {
-    for (let i = 1; i <= this.agendaRows.totalRooms; i++) {
-      this.rooms.push(i);
-    }
+    this.rooms = Array.from(
+      { length: this.agendaRows.totalRooms }, 
+      (_, i) => i+1
+    );
   }
 
   $onInit() {
