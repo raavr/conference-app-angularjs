@@ -1,13 +1,13 @@
 <section ng-if="$ctrl.speakers" class="route-section speakers-list-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h2 class="app-section-title text-dark">Our speakers!</h2>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="speaker in $ctrl.speakers">
-                <speaker-item speaker="speaker" ng-click="$ctrl.selectSpeaker(speaker)"></speaker-item>
-            </div>
-            <speaker-modal speaker="$ctrl.selectedSpeaker"></speaker-modal>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="app-section-title text-dark">Our speakers!</h2>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="speaker in $ctrl.speakers">
+        <speaker-item speaker="speaker" ng-click="$ctrl.selectSpeaker(speaker)"></speaker-item>
+      </div>
+      <speaker-modal speaker="$ctrl.selectedSpeaker"></speaker-modal>
     </div>
+  </div>
 </section>

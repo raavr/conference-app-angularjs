@@ -6,71 +6,78 @@ import { AgendaDay } from './agenda-day';
 
 class AgendaService {
 
-    constructor($http) {
-        this.http = $http;
+  constructor($http) {
+    this.http = $http;
+  }
+
+  _getDefaultCellsForSpecificTime(time, totalRooms) {
+    return Array.from(
+      { length: totalRooms },
+      (_, i) => new AgendaData(i + 1, TD_TYPES[TD_TYPES.GAP].toLowerCase(), time)
+    );
+  }
+
+  _concatCellsWithDefaultOnes(arr, totalRooms) {
+    if (arr[0].type === TD_TYPES[TD_TYPES.PRESENTATION].toLowerCase()) {
+      const gapsArray = this._getDefaultCellsForSpecificTime(arr[0].timeStart, totalRooms);
+      return [...arr, ...gapsArray];
     }
 
-    _getDefaultCellsForSpecificTime(time, totalRooms) {
-        return Array.from(
-            {length: totalRooms}, 
-            (e, i) => new AgendaData(i+1, TD_TYPES[TD_TYPES.GAP].toLowerCase(), time)
-        );
-    }
+    return arr;
+  }
 
-    _concatCellsWithDefaultOnes(arr, totalRooms) {
-        if(arr[0].type === TD_TYPES[TD_TYPES.PRESENTATION].toLowerCase()) {
-            let gapsArray = this._getDefaultCellsForSpecificTime(arr[0].timeStart, totalRooms);
-            return [...arr, ...gapsArray];
-        }
+  _distinctByTime(arr) {
+    return Observable.from(this._sortByRoom(arr))
+      .distinctUntilChanged((a, b) => a.room === b.room)
+      .toArray();
+  }
 
-        return arr;
-    }
+  _sortByRoom(arr) {
+    return arr.sort((a, b) => a.room - b.room);
+  }
 
-    _distinctByTime(arr) {
-        return Observable.from(this._sortByRoom(arr)).distinctUntilChanged((a, b) => a.room === b.room).toArray();
-    }
+  _transformAgenda(agenda, totalRooms) {
+    return Observable.from(agenda)
+      .groupBy(ad => ad.timeStart)
+      .mergeMap(group => group.reduce((acc, curr) =>
+        [...acc, curr], Array())
+      )
+      .map(p => this._concatCellsWithDefaultOnes(p, totalRooms))
+      .mergeMap(p => this._distinctByTime(p))
+      .map(pg => new AgendaRow(pg[0].timeStart, pg))
+      .toArray();
+  }
 
-   _sortByRoom(arr) {
-        return arr.sort((a,b) => a.room - b.room);
-    }
+  _createAgendaDay(agenda) {
+    return this._transformAgenda(agenda.agenda, agenda.totalRooms)
+      .map(agendaRow => (
+        new AgendaDay(agenda.day, agendaRow, agenda.totalRooms)
+      ));
+  }
 
-    _transformAgenda(agenda, totalRooms) {
-        return Observable.from(agenda)
-            .groupBy(ad => ad.timeStart)
-            .mergeMap(group => group.reduce((acc, curr) => 
-                [...acc, curr], Array())
-            )
-            .map(p => this._concatCellsWithDefaultOnes(p, totalRooms))
-            .mergeMap(p => this._distinctByTime(p))
-            .map(pg => new AgendaRow(pg[0].timeStart, pg))
-            .toArray();
-    }
+  getAgenda() {
+    const resPromise = this.http.get("/assets/mock-data/mock-agenda.json");
 
-    _createAgendaDay(agenda) {
-        return this._transformAgenda(agenda.agenda, agenda.totalRooms)
-                .map(agendaRow => new AgendaDay(agenda.day, agendaRow, agenda.totalRooms));
-                
-    }
+    return Observable.fromPromise(resPromise)
+      .map(res => res.data.agenda)
+      .mergeMap(res => Observable.from(res))
+      .mergeMap(agenda => this._createAgendaDay(agenda))
+      .toArray();
 
-    getAgenda() {
-         const resPromise = this.http.get("/assets/mock-data/mock-agenda.json");
-         
-         return Observable.fromPromise(resPromise)
-            .map(res => res.data.agenda)
-            .mergeMap(res => Observable.from(res))
-            .mergeMap(agenda => this._createAgendaDay(agenda))
-            .toArray();
+  }
 
-    }
-
-    createDaysNameArray(days) {
-        return Observable.of(Array.from({length: days}, (e, i) => `day ${DAYS[i].toLowerCase()}`));       
-    }
-
+  createDaysNameArray(days) {
+    return Observable.of(
+      Array.from(
+        { length: days },
+        (_, i) => `day ${DAYS[i].toLowerCase()}`
+      )
+    );
+  }
 }
 
 AgendaService.$inject = ['$http'];
 
 export default angular.module("agenda.service", [])
-                      .service("agendaService", AgendaService)
-                      .name;
+  .service("agendaService", AgendaService)
+  .name;

@@ -1,6 +1,6 @@
 export class AgendaRow {
-    constructor(time, sessions) {
-        this.time = time;
-        this.sessions = sessions;
-    }
+  constructor(time, sessions) {
+    this.time = time;
+    this.sessions = sessions;
+  }
 }

@@ -1,31 +1,32 @@
 @import '../speaker-item/speaker-item.component';
 
 .modal-header {
-    background-color: #6ccdff;
+  background-color: #6ccdff;
 }
 
 .modal-body {
-    padding: 60px;
+  padding: 60px;
 }
 
 .modal-dialog {
-    .speaker-item {
-        .speaker-name, .speaker-company {
-            color: #ffffff;
-        }
-
-        .speaker-name {
-            margin-top: 20px;
-        }
-
-        .speaker-company {
-            margin-top: 10px;
-        }
+  .speaker-item {
+    .speaker-name, 
+    .speaker-company {
+      color: #ffffff;
     }
 
-    .speaker-desc {
-        font-size: 1.7rem;
-        line-height: 2.6rem;
-        text-align: center;
+    .speaker-name {
+      margin-top: 20px;
     }
+
+    .speaker-company {
+      margin-top: 10px;
+    }
+  }
+
+  .speaker-desc {
+    font-size: 1.7rem;
+    line-height: 2.6rem;
+    text-align: center;
+  }
 }

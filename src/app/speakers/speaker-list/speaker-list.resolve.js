@@ -1,5 +1,5 @@
 export default function SpeakerListResolve(SpeakerService) {
-      return SpeakerService.getSpeakers().toPromise();
+  return SpeakerService.getSpeakers().toPromise();
 }
 
 SpeakerListResolve.$inject = ['speakerService'];

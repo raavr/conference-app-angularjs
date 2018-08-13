@@ -3,13 +3,13 @@ import MaxLenModule from './news-len.filter';
 describe('MaxLenFilter', () => {
   const MAX_LEN = 15;
   let maxLenFun;
-  
+
   beforeEach(angular.mock.module(MaxLenModule));
-  
+
   beforeEach(
-      angular.mock.inject((maxLenFilter) => {
-          maxLenFun = maxLenFilter;
-      }));
+    angular.mock.inject((maxLenFilter) => {
+      maxLenFun = maxLenFilter;
+    }));
 
   it('leaves "lorem ipsum" unchanged', () => {
     expect(maxLenFun('lorem ipsum', MAX_LEN)).toBe('lorem ipsum');
@@ -24,7 +24,7 @@ describe('MaxLenFilter', () => {
   });
 
   it('transforms "a" to "..."', () => {
-    let maxLen = 0;
+    const maxLen = 0;
     expect(maxLenFun('a', maxLen)).toBe('...');
   })
 

@@ -3,15 +3,15 @@ import template from './news-list.component.html';
 
 class NewsListController {
 
-    $onInit() {
-        this.onList = true;
-    }
+  $onInit() {
+    this.onList = true;
+  }
 }
 
 export const NewsListComponent = {
-    bindings: {
-        news: "<"
-    },
-    template: template,
-    controller: NewsListController
+  bindings: {
+    news: "<"
+  },
+  template,
+  controller: NewsListController
 }

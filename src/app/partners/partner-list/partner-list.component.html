@@ -1,10 +1,10 @@
 <section ng-if="$ctrl.partnersGroups" class="route-section partners-list-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 offset-xs-0 col-md-8 offset-md-2">
-                <h2 class="app-section-title text-dark">Our Partners</h2>
-            </div>
-        </div>
-        <partner-group ng-repeat="partnerGroup in $ctrl.partnersGroups" p-group="partnerGroup"></partner-group>  
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 offset-xs-0 col-md-8 offset-md-2">
+        <h2 class="app-section-title text-dark">Our Partners</h2>
+      </div>
     </div>
+    <partner-group ng-repeat="partnerGroup in $ctrl.partnersGroups" p-group="partnerGroup"></partner-group>
+  </div>
 </section>

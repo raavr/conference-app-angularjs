@@ -3,38 +3,37 @@ import template from './full-agenda.component.html';
 
 class FullAgendaController {
 
-    computeDayNameWidth() {
-        if(!this.daysName.length) {
-            return '0%';
-        }
-
-        return Math.floor(100 / this.daysName.length) + '%';
+  computeDayNameWidth() {
+    if (!this.daysName.length) {
+      return '0%';
     }
 
-    isActive(day) {
-        return this.activeDay === day; 
-    }
+    return Math.floor(100 / this.daysName.length) + '%';
+  }
 
-    setDayActive(index) {
-        this.activeDay = index;
-    }
+  isActive(day) {
+    return this.activeDay === day;
+  }
 
-    $onInit() {
-        this.agenda = this.route[0];
-        this.daysName = this.route[1];
-        this.activeDay = 0;        
-    }
+  setDayActive(index) {
+    this.activeDay = index;
+  }
 
-    selectSpeaker(speaker) {
-        this.selectedSpeaker = speaker;
-    }
+  $onInit() {
+    this.agenda = this.route[0];
+    this.daysName = this.route[1];
+    this.activeDay = 0;
+  }
 
+  selectSpeaker(speaker) {
+    this.selectedSpeaker = speaker;
+  }
 }
 
 export const FullAgendaComponent = {
-    bindings: {
-        route: "<"
-    },
-    template: template,
-    controller: FullAgendaController
+  bindings: {
+    route: "<"
+  },
+  template,
+  controller: FullAgendaController
 }

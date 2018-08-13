@@ -5,7 +5,11 @@ import Speakers from '../speakers/speakers';
 import Partners from '../partners/partners';
 import News from '../news/news';
 
-export default angular.module("home", [uiRouter, Speakers, Partners, News])
-                      .config(HomeConfig)
-                      .component("home", HomeComponent)
-                      .name;
+export default angular.module("home", [
+  uiRouter, 
+  Speakers, 
+  Partners, 
+  News
+]).config(HomeConfig)
+  .component("home", HomeComponent)
+  .name;

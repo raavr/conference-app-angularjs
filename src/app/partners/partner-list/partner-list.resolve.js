@@ -1,5 +1,5 @@
 export default function PartnerListResolve(PartnerService) {
-      return PartnerService.getPartners().toPromise();
+  return PartnerService.getPartners().toPromise();
 }
 
 PartnerListResolve.$inject = ['partnerService'];

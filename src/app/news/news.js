@@ -4,6 +4,10 @@ import NewsDetail from './news-detail/news-detail';
 import NewsConfig from './news.config';
 import NewsService from './news.service';
 
-export default angular.module("news", [uiRouter, NewsService, NewsList, NewsDetail])
-                      .config(NewsConfig)
-                      .name;
+export default angular.module("news", [
+  uiRouter, 
+  NewsService, 
+  NewsList, 
+  NewsDetail
+]).config(NewsConfig)
+  .name;

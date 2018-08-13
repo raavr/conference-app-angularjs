@@ -1,24 +1,26 @@
 <div class="row" ng-if="$ctrl.isActive">
-    <div class="col-xs-12">
-        <h2 class="agenda-day">{{$ctrl.agendaRows.day}}</h2>
+  <div class="col-xs-12">
+    <h2 class="agenda-day">{{$ctrl.agendaRows.day}}</h2>
+  </div>
+  <div class="col-xs-12">
+    <div class="btn-container">
+      <button ng-repeat="room in $ctrl.rooms" class="btn btn-room" ng-class="{ active: $ctrl.isRoomActive(room) }" ng-click="$ctrl.toggleRoomActive(room)"
+        type="button">Room {{room}}</button>
     </div>
-    <div class="col-xs-12">
-        <div class="btn-container">
-            <button ng-repeat="room in $ctrl.rooms" class="btn btn-room" ng-class="{ active: $ctrl.isRoomActive(room) }" ng-click="$ctrl.toggleRoomActive(room)" type="button">Room {{room}}</button>
-        </div>
-    </div>
-    <div class="col-xs-12">
-        <table class="agenda-table">
-            <thead>
-                <tr>
-                    <th>&nbsp;</th>
-                    <th ng-repeat="room in $ctrl.rooms" ng-style="{ width: $ctrl.computeTHWidth() }" ng-class="{ active: $ctrl.isRoomActive(room)}" class="th-room">Room {{room}}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="tr in $ctrl.agendaRows.agenda" agenda-row row="tr" active-rooms="$ctrl.activeRooms">               
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  </div>
+  <div class="col-xs-12">
+    <table class="agenda-table">
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th ng-repeat="room in $ctrl.rooms" ng-style="{ width: $ctrl.computeTHWidth() }" ng-class="{ active: $ctrl.isRoomActive(room)}"
+            class="th-room">Room {{room}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="tr in $ctrl.agendaRows.agenda" agenda-row row="tr" active-rooms="$ctrl.activeRooms">
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

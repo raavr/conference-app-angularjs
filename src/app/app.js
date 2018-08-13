@@ -1,4 +1,3 @@
-'use strict';
 import 'bootstrap/dist/css/bootstrap.css';
 import './app.style.scss';
 
@@ -14,17 +13,16 @@ import Navbar from './navbar/navbar';
 import Footer from './app-footer/app-footer';
 import Agenda from './agenda/agenda';
 
-
- export default angular.module("Conference-app", [
-         Navbar, 
-         Footer, 
-         Home, 
-         Speakers, 
-         Presentations, 
-         Partners, 
-         News, 
-         NoContent, 
-         Agenda
-     ]).config(AppConfig)
-       .component("app", AppComponent)
-       .name;
+export default angular.module("Conference-app", [
+  Navbar,
+  Footer,
+  Home,
+  Speakers,
+  Presentations,
+  Partners,
+  News,
+  NoContent,
+  Agenda
+]).config(AppConfig)
+  .component("app", AppComponent)
+  .name;
